@@ -21,3 +21,12 @@
 .p-dropdown{
   width: 100%;
 }
+
+footer{
+    position: absolute;
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    line-height: 20px;
+    bottom: 76px;
+}

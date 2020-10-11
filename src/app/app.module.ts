@@ -1,3 +1,4 @@
+import { CitiusValidatorModule } from './validators/citius-validator.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -15,7 +16,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     AppRoutingModule,
     HttpClientModule,
     MenubarModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    CitiusValidatorModule
 
   ],
   providers: [],

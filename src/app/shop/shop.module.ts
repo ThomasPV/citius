@@ -1,3 +1,4 @@
+import { CitiusValidatorModule } from './../validators/citius-validator.module';
 import { ShopLookupsService } from './shop-lookups.service';
 import { ShopFormGuard } from './../guards/shop-form.guard';
 import { CitiusPipesModule } from './../pipes/pipes.module';
@@ -14,6 +15,7 @@ import { RippleModule } from 'primeng/ripple';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {DropdownModule} from 'primeng/dropdown';
 
+import {InputTextModule} from 'primeng/inputtext';
 const routes:Routes = [
   {path:'list',component:ShopListComponent},
   {path:'add',component:ShopAddComponent, canDeactivate:[ShopFormGuard]},
@@ -33,7 +35,9 @@ const routes:Routes = [
     FormsModule,
     CitiusPipesModule,
     DropdownModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CitiusValidatorModule,
+    InputTextModule
   ],
   providers:[ShopLookupsService]
 })

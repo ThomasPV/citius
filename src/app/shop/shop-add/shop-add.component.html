@@ -6,7 +6,7 @@
     height="30px"
   />
   <h5>Lets Add a Shop ! TEMPLATE DRIVEN APPROACH</h5>
-  <form #form="ngForm" (ngSubmit)="form.valid? submit():markFormGroupTouched(form)">
+  <form #form="ngForm" (ngSubmit)="form.valid? submit():utility.markFormGroupTouched(form)">
     <div class="p-field p-grid">
       <label for="firstname3" class="p-col-fixed" style="width: 100px"
         >Name  </label
@@ -20,11 +20,13 @@
           name="name"
           pInputText
           #name="ngModel"
+          restrictedValidatorTD
           aria-describedby="name-help"
           required
         />
         <small *ngIf="name.valid && !name.touched" style="display: block;" id="name-help">10 Chars <span class="text-danger">RED</span> Highlighter Directive</small>
-        <small *ngIf="!name.valid && !!name.touched" class="error-text" id="name-help">required</small>
+        <small *ngIf="!!name.errors?.required && !!name.touched" class="error-text" id="name-help">required</small>
+        <small *ngIf="!!name.errors?.restrictedName && !!name.touched" class="error-text" id="name-help">Name's taken ! TD-Validator</small>
       </div>
 
     </div>

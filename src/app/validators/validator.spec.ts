@@ -3,11 +3,12 @@ import { restrictedValidator } from "./restricted-validator.validator";
 
 describe('Testing Custom Validator',()=>{
 
-it('Test Success Case',()=>{
+it('Validator - Unique Name Success Case',()=>{
 
 expect(restrictedValidator(new FormControl('Jalaram'))).toEqual(null)
 });
-it('Test Fail Case',()=>{
+
+it('Validator - Existing Name Fail Case',()=>{
 
   expect(restrictedValidator(new FormControl('bikaner'))).toEqual({
     restrictedName: {

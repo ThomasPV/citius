@@ -1,3 +1,4 @@
+import { UtilityService } from './../../../shared/utility.service';
 import { ShopControllerService } from 'src/app/services/shop-controller.service';
 import { ShopLookupsService } from './../shop-lookups.service';
 import { CanDeactivate, Router } from '@angular/router';
@@ -18,7 +19,8 @@ export class ShopAddComponent implements OnInit {
   constructor(
     private lookup: ShopLookupsService,
     private shopController: ShopControllerService,
-    private router: Router
+    private router: Router,
+    public utility: UtilityService
     ) {
     this.types = this.lookup.getShopTypes().map(el=>({label:el.name, value: el.id}));
    }
@@ -42,15 +44,7 @@ export class ShopAddComponent implements OnInit {
       return true;
     }
   }
-  markFormGroupTouched(formGroup: FormGroup) {
-    (<any>Object).values(formGroup.controls).forEach(control => {
-      if (control.controls) { // control is a FormGroup
-        this.markFormGroupTouched(control);
-      } else { // control is a FormControl
-        control.markAsTouched();
-      }
-    });
-   }
+
 
 
 }

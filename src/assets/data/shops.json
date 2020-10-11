@@ -1,6 +1,6 @@
 {
   "shops":[
     {"id":1,"name":"Bikaner Sweets Co.","type":"savory","typeId":1, "contact":"+12133734253"},
-    {"id":2,"name":"Rajpurohits & Sons","type":"sweets","typeId":1,"contact":"+12133734222"}
+    {"id":2,"name":"Dunkin' Donuts","type":"sweets","typeId":1,"contact":"+12133734222"}
   ]
 }

@@ -2,6 +2,7 @@ import { AuthenticationService } from './../../services/authentication.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { UtilityService } from 'src/shared/utility.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   user = { username: null, password: null }
-  constructor(private authService: AuthenticationService, private router: Router) { }
+  constructor(private authService: AuthenticationService, private router: Router,
+    public utility: UtilityService) { }
 
   ngOnInit(): void {
   }

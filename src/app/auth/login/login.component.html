@@ -6,7 +6,7 @@
     height="30px"
   />
   <h5>Login -u admin -p admin</h5>
-  <form #form="ngForm" (ngSubmit)="form.valid? login():showErrors(form);">
+  <form #form="ngForm" (ngSubmit)="form.valid? login(): utility.markFormGroupTouched(form);">
     <div class="p-field p-grid">
       <label for="firstname3" class="p-col-fixed" style="width: 100px"
         >Name  </label

@@ -1,13 +1,15 @@
+import { RouterTestingModule } from '@angular/router/testing';
+import { RouterModule } from '@angular/router';
 import { ShopModule } from './../shop.module';
 import { ShopControllerService } from 'src/app/services/shop-controller.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ShopListComponent } from './shop-list.component';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { of } from 'rxjs';
 import { TableModule } from 'primeng/table';
 import {NoopAnimationsModule} from '@angular/platform-browser/animations';
+import { CitiusPipesModule } from 'src/app/pipes/pipes.module';
 describe('ShopListComponent', () => {
   let component: ShopListComponent;
   let fixture: ComponentFixture<ShopListComponent>;
@@ -16,19 +18,19 @@ describe('ShopListComponent', () => {
   beforeEach(async(() => {
     shopControllerService = jasmine.createSpyObj("ShopControllerService",["getShops"])
     TestBed.configureTestingModule({
-      imports:[TableModule,NoopAnimationsModule],
+      imports:[TableModule,NoopAnimationsModule,RouterTestingModule,CitiusPipesModule],
       declarations: [ ShopListComponent ],
       providers:[{provide:ShopControllerService,useValue:shopControllerService}]
     })
-    .compileComponents();
+    .compileComponents().then(()=>{
+      fixture = TestBed.createComponent(ShopListComponent);
+      el = fixture.debugElement;
+      component = fixture.componentInstance;
+      shopControllerService = TestBed.get(ShopControllerService);
+    });
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ShopListComponent);
-    component = fixture.componentInstance;
-    shopControllerService = TestBed.get(ShopControllerService);
-    fixture.detectChanges();
-    el = fixture.debugElement;
   });
 
   it('should create', () => {
@@ -45,9 +47,7 @@ describe('ShopListComponent', () => {
      )
     );
     fixture.detectChanges();
-    console.log(el.nativeElement.innerHTML);
-    let rows = el.queryAll(By.css(".m-1"));
-    console.log(el.queryAll(By.css(".row-xd")))
+    let rows = el.queryAll(By.css(".row-xd"));
     expect(rows.length).toEqual(2, "More Tabs were found");
     //pending();
   });
