@@ -1,0 +1,39 @@
+<div class="p-grid">
+  <div class="p-col">
+</div>
+  <div class="p-col-fixed" style="width:150px">
+      <div class="box">
+        <button routerLink="/shop/add" pButton pRipple type="button" label="Add Shop" class="p-button-raised p-button-text"></button>
+      </div>
+  </div>
+
+</div>
+<p-table [value]="shops$ | async">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>#</th>
+          <th>Name</th>
+          <th>Contact </th>
+          <th>Type</th>
+          <th>Actions</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-shop>
+      <tr class="row-xd">
+          <td>{{shop.id}}</td>
+          <td>{{shop.name}}</td>
+          <td>{{shop.contact | citiusPhone: 'US'}}</td>
+          <td>{{shop.type}}</td>
+          <td>
+            <span class="m-1">
+              <button (click)="deleteShop(shop.id)" pButton pRipple type="button" icon="pi pi-times" class="p-button-rounded p-button-danger"></button>
+
+            </span>
+            <span class="m-1">
+              <button routerLink="/shop/update/{{shop.id}}" pButton pRipple type="button" icon="pi pi-pencil" class="p-button-rounded p-button-secondary"></button>
+
+            </span>
+          </td>
+      </tr>
+  </ng-template>
+</p-table>

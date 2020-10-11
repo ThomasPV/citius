@@ -1,0 +1,7 @@
+{
+  "shopTypes":[
+    {"id":1, "name":"Savory","code":"SV"},
+    {"id":2, "name":"Sweet", "code":"SW"}
+  ],
+  "shopNames":["Bikaner" , "Rajpurohits" ]
+}

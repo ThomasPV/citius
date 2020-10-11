@@ -1,0 +1,23 @@
+.pull-right {
+  float: right;
+}
+.text-danger{
+  color: red;
+}
+.input-danger{
+  border: 0.5px solid red;
+}
+.input-danger :focus{
+  border: 0.5px solid red;
+}
+
+.center{
+  margin: auto;
+}
+.error-text{
+  display: block;
+  color: red;
+}
+.p-dropdown{
+  width: 100%;
+}

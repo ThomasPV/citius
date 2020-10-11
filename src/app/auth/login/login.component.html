@@ -1,0 +1,52 @@
+<div class="card">
+  <img
+    src="https://primefaces.org/primeng/showcase/assets/showcase/images/primeng-logo-dark.svg"
+    alt="primeng"
+    width="100px"
+    height="30px"
+  />
+  <h5>Login -u admin -p admin</h5>
+  <form #form="ngForm" (ngSubmit)="form.valid? login():showErrors(form);">
+    <div class="p-field p-grid">
+      <label for="firstname3" class="p-col-fixed" style="width: 100px"
+        >Name  </label
+      >
+      <div class="p-col">
+        <input
+          [(ngModel)]="user.username"
+          id="name"
+          type="text"
+          name="name"
+          pInputText
+          aria-describedby="name-help"
+          required
+          #username="ngModel"
+        />
+        <small class="error-text" *ngIf="!username.valid && username.touched">required</small>
+      </div>
+
+    </div>
+    <div class="p-field p-grid">
+      <label for="password" class="p-col-fixed" style="width: 100px"
+        >Password</label
+      >
+      <div class="p-col">
+        <input id="password" #password="ngModel" type="password" pInputText name="password" [(ngModel)]="user.password" required/>
+        <small class="error-text" *ngIf="!password.valid && password.touched">required</small>
+
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <span class="p-col">
+        <button
+          type="submit"
+          pButton
+          pRipple
+          label="LOGIN"
+          class="center pull-right p-button-success p-button-text"
+        ></button>
+
+      </span>
+    </div>
+  </form>
+</div>

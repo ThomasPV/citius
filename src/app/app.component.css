@@ -1,0 +1,10 @@
+.logout-button{
+  color: #fff;
+  margin: 0 20px 0 0;
+}
+
+a.logout-button:hover{
+  color: #7ff !important;
+  margin: 0 20px 0 0;
+}
+

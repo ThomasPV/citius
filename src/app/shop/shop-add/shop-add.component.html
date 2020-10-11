@@ -1,0 +1,81 @@
+<div class="card">
+  <img
+    src="https://primefaces.org/primeng/showcase/assets/showcase/images/primeng-logo-dark.svg"
+    alt="primeng"
+    width="100px"
+    height="30px"
+  />
+  <h5>Lets Add a Shop ! TEMPLATE DRIVEN APPROACH</h5>
+  <form #form="ngForm" (ngSubmit)="form.valid? submit():markFormGroupTouched(form)">
+    <div class="p-field p-grid">
+      <label for="firstname3" class="p-col-fixed" style="width: 100px"
+        >Name  </label
+      >
+      <div class="p-col">
+        <input
+          [limitHighlighter]="shop.name"
+          [(ngModel)]="shop.name"
+          id="name"
+          type="text"
+          name="name"
+          pInputText
+          #name="ngModel"
+          aria-describedby="name-help"
+          required
+        />
+        <small *ngIf="name.valid && !name.touched" style="display: block;" id="name-help">10 Chars <span class="text-danger">RED</span> Highlighter Directive</small>
+        <small *ngIf="!name.valid && !!name.touched" class="error-text" id="name-help">required</small>
+      </div>
+
+    </div>
+    <div class="p-field p-grid">
+      <label for="Contact" class="p-col-fixed" style="width: 100px"
+        >Contact  </label
+      >
+      <div class="p-col">
+        <input
+          [(ngModel)]="shop.contact"
+          id="contact"
+          type="text"
+          name="contact"
+          pInputText
+          #contact="ngModel"
+          aria-describedby="name-help"
+          required
+        />
+        <small *ngIf="!contact.valid && !!contact.touched" class="error-text" id="name-help">required</small>
+      </div>
+
+    </div>
+    <div class="p-field p-grid">
+      <label for="lastname3" class="p-col-fixed" style="width: 100px"
+        >Type</label
+      >
+      <div class="p-col">
+        <p-dropdown name="type" [(ngModel)]="shop.typeId" [options]="types"  name="type"></p-dropdown>
+
+      </div>
+    </div>
+    <div class="p-field p-grid">
+      <span class="p-col">
+        <button
+          type="submit"
+          pButton
+          pRipple
+          label="Save"
+          class="pull-right p-button-success p-button-text"
+        ></button>
+
+        <button
+          routerLink="/shop/list"
+          type="button"
+          pButton
+          pRipple
+          type="button"
+          label="Cancel"
+          class="pull-right p-button-secondary p-button-text"
+        ></button>
+      </span>
+    </div>
+  </form>
+</div>
